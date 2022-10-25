@@ -22,6 +22,8 @@ public class Conexion {
             } else {
                 System.out.println("Failed to connect.");
             }
+            Statement stmt = conn.createStatement();
+            stmt.executeQuery("ALTER SESSION SET CURRENT_SCHEMA=test");
         } catch (Exception e) {
             e.printStackTrace();
         }

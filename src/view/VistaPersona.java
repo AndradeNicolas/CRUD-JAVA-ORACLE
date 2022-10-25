@@ -28,4 +28,7 @@ public class VistaPersona {
         System.out.println("Last_name");
     } 
 
+    public void idPersona(){
+        System.out.println("Id");
+    }
 }

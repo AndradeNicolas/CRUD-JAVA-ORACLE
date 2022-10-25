@@ -42,19 +42,27 @@ public class CtrlPersona {
                         personaDAO.registrar(persona);
                         break;
                     case 2:
-                        System.out.println("Has seleccionado la opcion 2");
+                        vistaPersona.imprimirPersonas(personaDAO.listar());
                         break;
                     case 3:
-                        System.out.println("Has seleccionado la opcion 3");
+                        vistaPersona.idPersona();
+                        persona.setId(sn.nextInt());
+                        vistaPersona.first_namePersona();
+                        persona.setFirst_name(sn.next());
+                        vistaPersona.last_namePersona();
+                        persona.setLast_name(sn.next());
+                        personaDAO.actulizar(persona);
                         break;
                     case 4:
-                        salir = true;
+                        vistaPersona.idPersona();
+                        persona.setId(sn.nextInt());
+                        personaDAO.Eliminar(persona);
                         break;
                     case 5:
                         salir = true;
                         break;
                     default:
-                        System.out.println("Solo números entre 1 y 4");
+                        System.out.println("Solo números entre 1 y 5");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Debes insertar un número");
