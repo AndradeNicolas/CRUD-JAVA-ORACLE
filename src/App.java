@@ -15,7 +15,9 @@ public class App {
 			//Open the connection
 			conn = DriverManager.
 			getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
- 
+			
+			
+
 			if(conn != null){
 			   System.out.println("Successfully connected.");
 			}else{
@@ -23,10 +25,11 @@ public class App {
 			}
 			//create the statement object
             Statement stmt = conn.createStatement();
-			stmt.executeQuery("ALTER SESSION SET CURRENT_SCHEMA=Prueba");
-			ResultSet rs = stmt.executeQuery("select * from person");
+			stmt.executeQuery("ALTER SESSION SET CURRENT_SCHEMA=test");
+			// stmt.executeQuery("INSERT INTO PERSONA (FIRST_NAME, LAST_NAME) VALUES ('primero', 'segundo')");
+			ResultSet rs=stmt.executeQuery("select * from persona");  
 			while(rs.next())
-				System.out.println(rs.getInt(0));
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
 
 		}catch(Exception e){
 			e.printStackTrace();
